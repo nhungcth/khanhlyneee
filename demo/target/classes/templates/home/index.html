@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8"> <!--bảng mã chi phép sd kí tự TV và unicode-->
+    <title>sv Form</title>
+</head>
+
+<body>
+    <form method="post" th:action="@{/add}">
+        <label for="id">Mã sinh viên:</label>
+        <input type="text" id="id" name="id" th:value="${id}" />
+        <p th:text="${errid}"></p>
+        <label for="name">Họ tên:</label>
+        <input type="text" id="name" name="name" th:value="${name}" />
+        <p th:text="${errname}"></p>
+        <label for="dob">Ngày sinh:</label>
+        <input type="date" id="dob" name="dob" th:value="${dob}" />
+        <p th:text="${errdob}"></p>
+        <label for="department">Khoa:</label>
+        <select id="department" name="department" th:value="${department}">
+            <option value="" th:selected="${department == ''}">-Chọn ngành-</option>
+            <option value="TC-KT" th:selected="${department == 'TC-KT'}">Tài chính kế toán</option>
+            <option value="CNTT" th:selected="${department == 'CNTT'}">CNTT</option>
+            <option value="VT" th:selected="${department == 'VT'}">VT</option>
+        </select>
+        <p th:text="${errdep}"></p>
+
+        <button type="submit">Add</button>
+        <button type="reset">Reset</button>
+    </form>
+    <p th:text="${response}"></p>
+</body>
+
+</html>
